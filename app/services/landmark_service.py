@@ -1,0 +1,19 @@
+import cv2
+
+class LandmarkService:
+    def __init__(self):
+    
+        import mediapipe as mp
+        self.mp_pose = mp.solutions.pose
+        self.pose = self.mp_pose.Pose(
+            static_image_mode=False,
+            model_complexity=1,
+            min_detection_confidence=0.5
+        )
+
+    def get_landmarks(self, frame):
+        if frame is None:
+            return None
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        results = self.pose.process(rgb_frame)
+        return results.pose_landmarks.landmark if results.pose_landmarks else None

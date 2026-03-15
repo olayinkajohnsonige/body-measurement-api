@@ -1,0 +1,19 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Large Model Weights
+sam2_l.pt
+
+# Temporary processing files
+temp_frames/
+*.mp4
+*.jpg
+*.png
+
+# OS specific files
+.DS_Store
+Thumbs.db
